@@ -27,34 +27,48 @@ namespace _1DV402.S2.L1A
 
         public bool MakeGuess(int number)
         {
-            if (number < 1 || number > 100)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
             
-            if (number < _number)
-            {
-                Console.WriteLine("{0} är för lågt! Gissa på något högre.\n Du har {1} gissningar kvar.", number, _count);
-                return false;
-            }
-            if (number > _number)
-            {
-                Console.WriteLine("{0} är för högt! Gissa på något lägre.\n Du har {1} gissningar kvar.", number, _count);
-                return false;
-            }
 
-            if (_count == MaxNumberOfGuesses)
-            {
-                Console.WriteLine("Tyvärr, du har slut på gissningar!\n Det hemliga talet var {0}.", _number);
-                throw new ApplicationException();
-            }
+                if (_count >= MaxNumberOfGuesses)
+                {
+                    throw new ApplicationException();
+                }
 
-            if(number == _number)
-            {
-                Console.WriteLine("Grattis! Du gissade rätt på {0} försök.", _count);
-                return true;
-            }
-            _count++;
+                _count++;
+
+                if (_count < MaxNumberOfGuesses)
+                {
+
+
+                    if (number < 1 || number > 100)
+                    {
+                        throw new ArgumentOutOfRangeException();
+                    }
+
+                    if (number == _number)
+                    {
+                        Console.WriteLine("Grattis! Du gissade rätt på {0} försök.", _count);
+                        return true;
+                    }
+
+                    if (number < _number)
+                    {
+                        Console.WriteLine("{0} är för lågt! Gissa på något högre.\nDu har {1} gissningar kvar.", number, MaxNumberOfGuesses - _count);
+                        return false;
+                    }
+                    if (number > _number)
+                    {
+                        Console.WriteLine("{0} är för högt! Gissa på något lägre.\nDu har {1} gissningar kvar.", number, MaxNumberOfGuesses - _count);
+                        return false;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Tyvärr, du har gissat för många gånger!\nDet hemliga talet är: {0}", _number);
+                }
+
+
+
             return false;
         }
 
