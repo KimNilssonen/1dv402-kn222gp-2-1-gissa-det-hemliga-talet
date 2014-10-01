@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace _1DV402.S2.L1A
 {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8ebdff0f85d329782aa7a8ee83309de09d68ef25
     // Making class "SecretNumber" public so that all other classes can reach the code.
     public class SecretNumber
     {
@@ -17,8 +20,12 @@ namespace _1DV402.S2.L1A
         public const int MaxNumberOfGuesses = 7;
         Random rnd = new Random(); // Creates a new Random, called rnd.
 
+<<<<<<< HEAD
         // Constructor that runs the method, Initialize().
         public SecretNumber() 
+=======
+        public SecretNumber() // Constructor that runs the method, Initialize().
+>>>>>>> 8ebdff0f85d329782aa7a8ee83309de09d68ef25
         {
             Initialize();
         }
@@ -30,6 +37,7 @@ namespace _1DV402.S2.L1A
            _number = rnd.Next(1, 101); // Gives _number a random integer between 1 and 100.
         }
 
+<<<<<<< HEAD
         // 3. This is where the guessing happens.
         public bool MakeGuess(int number)
         {
@@ -38,6 +46,19 @@ namespace _1DV402.S2.L1A
             {
                 throw new ArgumentOutOfRangeException();
             }
+=======
+        // 3. This is where the guessing happens. 
+        public bool MakeGuess(int number)
+        {
+
+                if (_count == MaxNumberOfGuesses)
+                {
+                    throw new ApplicationException(String.Format("Tyvärr, du har gissat för många gånger! Det hemliga talet var: {0}\n", _number));
+                }               
+                
+                _count++;
+
+>>>>>>> 8ebdff0f85d329782aa7a8ee83309de09d68ef25
 
             if (_count < MaxNumberOfGuesses)
             {
