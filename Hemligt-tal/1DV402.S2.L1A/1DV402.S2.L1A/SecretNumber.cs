@@ -28,7 +28,6 @@ namespace _1DV402.S2.L1A
         {
            _count = 0;
            _number = rnd.Next(1, 101); // Gives _number a random integer between 1 and 100.
-
         }
 
         // 3. This is where the guessing happens.
